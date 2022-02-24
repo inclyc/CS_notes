@@ -19,4 +19,4 @@ jobs:
         with:
           name: PDF
           path: |
-            os/os.tex
+            os/os.pdf
