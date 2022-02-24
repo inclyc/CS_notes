@@ -1,0 +1,31 @@
+\documentclass[a4paper]{ctexrep}
+
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{booktabs}
+
+\title{操作系统 -- 李治军}
+\author{Y.C. Long}
+
+\begin{document}
+    \maketitle
+    \chapter{揭开钢琴的盖子}
+
+    \section{计算机的工作原理 -- 图灵机模型}
+
+    将程序和数据存放到计算机内部的存储器中，计算机在程序的控制下一步一步进行处理。
+
+    \section{引导扇区 -- 操作系统的所有故事从这里开始}
+
+    当打开电源后，第一条指令是什么？刚开始的时候内存中有什么呢？
+
+    x86结构，刚开机CPU处于实模式，CS=0xFFFF, IP=0x0000
+
+    寻址0xFFFF0(ROM BIOS映射区)，将磁盘0磁道0扇区（引导扇区）读入0x7c00处，设置CS=0x07c0，IP=0x0000
+
+    rep movw 从ds:si移到es:di，也就是0x7c000移到0x90000
+
+    int 0x13 BIOS中断，读磁盘。ah=0x02
+\end{document}
