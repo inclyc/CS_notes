@@ -1,0 +1,22 @@
+name: LaTeX Build
+on: [push]
+
+jobs:
+  build_organic_chemistry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out my files
+        uses: actions/checkout@v2
+      - name: Build notes
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            os/os.tex
+          latexmk_use_xelatex: true
+          work_in_root_file_dir: true
+      - name: Upload notes
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: |
+            os/os.tex
